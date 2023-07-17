@@ -1,12 +1,30 @@
 package ru.maxima.spring;
 
+import java.util.List;
+
 public class MusicPlayer {
     private Radio radio;
 
     private String nameOfRadioFrequency;
 
+    private List<Radio> radioList;
     private double startRadio;
     private double endRadio;
+
+    public MusicPlayer() {
+    }
+
+    public List<Radio> getRadioList() {
+        return radioList;
+    }
+
+    public void setRadioList(List<Radio> radioList) {
+        this.radioList = radioList;
+    }
+
+    public MusicPlayer(List<Radio> radioList) {
+        this.radioList = radioList;
+    }
 
     public void setRadio(Radio radio) {
         this.radio = radio;
