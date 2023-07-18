@@ -8,19 +8,35 @@
 
     <context:property-placeholder location="application.properties"/>
 
-    <bean id="rockRadio"
-          class="ru.maxima.spring.RockRadio">
-    </bean>
+    <!-- Создаем класс-фабрику через конструктор -->
+    <bean id="radioFactory" class="ru.maxima.spring.RadioFactory"/>
 
-    <bean id="musicPlayer"
+    <!-- Создаем бин через фабрику -->
+    <bean id="rockRadio" factory-bean="radioFactory" factory-method="createRockRadio"/>
+
+   <!--  Создаем бин через фабрику -->
+    <bean id="retroRadio" factory-bean="radioFactory" factory-method="createRetroRadio"/>
+
+   <!--  Создаем бин через фабрику -->
+    <bean id="dachaRadio" factory-bean="radioFactory" factory-method="createDachaRadio"/>
+
+    <!-- Создаем бин у которого лист бинов радиостанций -->
+    <bean id="musicPlayer" name="musicPlayer"
           class="ru.maxima.spring.MusicPlayer"
-           scope="prototype">
-        <property name = "radio" ref="rockRadio"/>
-        <property name = "nameOfRadioFrequency" value="${nameOfRadioFrequency}"/>
-        <property name = "startRadio" value="${startRadio}"/>
-        <property name = "endRadio" value="${endRadio}"/>
+          scope="prototype">
 
+        <property name="nameOfRadioFrequency" value="${nameOfRadioFrequency}"/>
+        <property name="startRadio" value="${startRadio}"/>
+        <property name="endRadio" value="${endRadio}"/>
 
+        <!-- java.util.List -->
+        <property name="radioList">
+            <list>
+                <ref bean="retroRadio"/>
+                <ref bean="rockRadio"/>
+                <ref bean="dachaRadio"/>
+            </list>
+        </property>
     </bean>
 
 </beans>

@@ -1,6 +1,6 @@
 package ru.maxima.spring;
 
-interface Radio {
+public interface Radio {
     String getSong();
 
 }

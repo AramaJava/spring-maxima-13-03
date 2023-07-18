@@ -1,10 +1,10 @@
 package ru.maxima.spring;
 
-class RetroRadio implements Radio {
+class DachaRadio implements Radio {
     private String name;
 
-    public RetroRadio() {
-        System.out.println("retroRadio create bean");
+    public DachaRadio() {
+        System.out.println("dachaRadio create bean");
     }
 
     public String getName() {
@@ -17,6 +17,6 @@ class RetroRadio implements Radio {
 
     @Override
     public String getSong() {
-        return "Abba - Mama Mia";
+        return "Ruki Vverx - kroshka moya";
     }
 }

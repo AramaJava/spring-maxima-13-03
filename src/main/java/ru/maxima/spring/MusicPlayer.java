@@ -11,9 +11,6 @@ public class MusicPlayer {
     private double startRadio;
     private double endRadio;
 
-    public MusicPlayer() {
-    }
-
     public List<Radio> getRadioList() {
         return radioList;
     }
@@ -59,7 +56,7 @@ public class MusicPlayer {
     }
 
     public void playMusic() {
-        System.out.println("On air: \n" +  radio.getSong());
+        radioList.forEach(radio1 -> System.out.println(radio1.getSong()));
     }
 
 }
