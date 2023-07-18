@@ -11,6 +11,9 @@ public class MusicPlayer {
     private double startRadio;
     private double endRadio;
 
+    public MusicPlayer() {
+    }
+
     public List<Radio> getRadioList() {
         return radioList;
     }
